@@ -1,0 +1,128 @@
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { IoEye, IoEyeOff } from "react-icons/io5";
+import { Link } from "react-router";
+
+const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = (data) => {
+    console.log("Register Data:", data);
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="w-full bg-base-100 p-8">
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+            Create your account
+          </h1>
+          <p className="text-xs md:text-sm text-gray-500 mt-2">
+            Start managing assets with AssetVerse
+          </p>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit(handleRegister)} className="space-y-5">
+          {/* Name */}
+          <div>
+            <label className="label">
+              <span className="label-text font-medium">Full Name</span>
+            </label>
+            <input
+              type="text"
+              {...register("name", { required: true })}
+              placeholder="John Doe"
+              className="input w-full outline-none focus:border-2 focus:border-primary"
+            />
+            {errors.name && (
+              <p className="text-error text-sm mt-1">Name is required</p>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="label">
+              <span className="label-text font-medium">Email Address</span>
+            </label>
+            <input
+              type="email"
+              {...register("email", { required: true })}
+              placeholder="john@example.com"
+              className="input w-full outline-none focus:border-2 focus:border-primary"
+            />
+            {errors.email && (
+              <p className="text-error text-sm mt-1">Email is required</p>
+            )}
+          </div>
+
+          {/* Role */}
+          <div>
+            <label className="label">
+              <span className="label-text font-medium">Account Type</span>
+            </label>
+            <select
+              {...register("role", { required: true })}
+              className="select w-full outline-none focus:border-2 focus:border-primary"
+            >
+              <option value="">Select role</option>
+              <option value="employee">Employee</option>
+              <option value="hr">HR Manager</option>
+            </select>
+            {errors.role && (
+              <p className="text-error text-sm mt-1">Please select a role</p>
+            )}
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="label">
+              <span className="label-text font-medium">Password</span>
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                {...register("password", { required: true, minLength: 6 })}
+                placeholder="••••••••"
+                className="input w-full pr-12 outline-none focus:border-2 focus:border-primary"
+              />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 z-50"
+              >
+                {showPassword ? <IoEye /> : <IoEyeOff />}
+              </span>
+            </div>
+            {errors.password && (
+              <p className="text-error text-sm mt-1">
+                Minimum 6 characters required
+              </p>
+            )}
+          </div>
+
+          {/* Submit button */}
+          <button type="submit" className="btn btn-primary w-full mt-2">
+            Create Account
+          </button>
+        </form>
+
+        {/* Link */}
+        <p className="text-center text-sm font-medium text-gray-500 mt-6">
+          Already have an account?{" "}
+          <Link to="/login" className="text-primary font-bold hover:underline">
+            Login
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Register;
