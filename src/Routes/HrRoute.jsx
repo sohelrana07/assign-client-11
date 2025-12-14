@@ -1,21 +1,19 @@
 import React from "react";
 import useAuth from "../Hooks/useAuth";
 import useRole from "../Hooks/useRole";
+import Loading from "../Components/Loading/Loading";
+import Forbidden from "../Components/Forbidden/Forbidden";
 
 const HrRoute = ({ children }) => {
   const { loading } = useAuth();
   const { role, roleLoading } = useRole();
 
   if (loading || roleLoading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
 
   if (role !== "hr") {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <h1 className="text-4xl font-bold">Forbidden Access</h1>
-      </div>
-    );
+    return <Forbidden></Forbidden>;
   }
 
   return children;

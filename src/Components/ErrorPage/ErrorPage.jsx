@@ -1,7 +1,7 @@
 import React from "react";
 import Lottie from "react-lottie";
 import { Link, useNavigate } from "react-router";
-import errorAnimationData from "../../assets/json/Page 404.json";
+import errorAnimation from "../../assets/json/Page 404.json";
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const ErrorPage = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: errorAnimationData,
+    animationData: errorAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid meet",
     },

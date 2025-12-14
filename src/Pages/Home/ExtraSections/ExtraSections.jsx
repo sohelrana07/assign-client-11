@@ -156,7 +156,7 @@ const ExtraSections = () => {
             their operations.
           </p>
           <a
-            href="/auth/register"
+            href="/register"
             className="inline-block px-10 py-4 bg-secondary text-white font-semibold rounded-xl shadow hover:opacity-90 transition-all duration-300"
           >
             Get Started
