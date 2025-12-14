@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
@@ -11,13 +13,29 @@ const Login = () => {
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
+  const { signInUser } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = (data) => {
     console.log("Login Data:", data);
+
+    // Sign In
+    signInUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Login successful! Welcome back.");
+        setTimeout(() => {
+          navigate("/");
+        }, 1200);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
+      <title>AssetVerse | Login</title>
       <div className="w-full bg-base-100 p-8">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -74,7 +92,10 @@ const Login = () => {
           </div>
 
           {/* Submit button */}
-          <button type="submit" className="btn btn-primary w-full mt-2">
+          <button
+            type="submit"
+            className="btn btn-primary w-full text-black mt-2"
+          >
             Login
           </button>
         </form>

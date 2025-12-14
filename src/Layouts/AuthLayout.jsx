@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router";
 import Logo from "../Components/Logo/Logo";
 import welcomeImg from "../assets/Hello.svg";
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const AuthLayout = () => {
   return (
@@ -18,7 +18,7 @@ const AuthLayout = () => {
           <img
             src={welcomeImg}
             alt="Welcome Illustration"
-            className="max-w-md w-full"
+            className="max-w-lg w-full"
           />
         </div>
 
@@ -29,6 +29,20 @@ const AuthLayout = () => {
           </div>
         </div>
       </div>
+
+      {/* Toast */}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

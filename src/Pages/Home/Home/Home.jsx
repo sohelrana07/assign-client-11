@@ -8,6 +8,7 @@ import ExtraSections from "../ExtraSections/ExtraSections";
 const Home = () => {
   return (
     <div>
+      <title>Assign Verse | Home </title>
       <HeroBanner></HeroBanner>
       <AboutSection></AboutSection>
       {/* 1 ta dynamic baki ache */}

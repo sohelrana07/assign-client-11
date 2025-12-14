@@ -1,9 +1,26 @@
 import React from "react";
 import { TbHexagonLetterA } from "react-icons/tb";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
-const Navbar = ({ user }) => {
-  // Active link style
+const Navbar = () => {
+  const { user, logOutUser } = useAuth();
+  const navigate = useNavigate();
+
+  // logOut
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        toast.success("Sign-out successful");
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
+  // Active style
   const navLinkStyle = ({ isActive }) =>
     isActive
       ? "text-secondary font-semibold border-b-2 border-secondary pb-1"
@@ -18,54 +35,12 @@ const Navbar = ({ user }) => {
         </NavLink>
       </li>
 
-      {user?.role === "employee" && (
-        <>
-          <li>
-            <NavLink className={navLinkStyle} to="/employee/my-assets">
-              My Assets
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={navLinkStyle} to="/employee/my-team">
-              My Team
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={navLinkStyle} to="/employee/request-asset">
-              Request Asset
-            </NavLink>
-          </li>
-        </>
-      )}
-
-      {user?.role === "hr" && (
-        <>
-          <li>
-            <NavLink className={navLinkStyle} to="/hr/assets">
-              Asset List
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={navLinkStyle} to="/hr/add-asset">
-              Add Asset
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={navLinkStyle} to="/hr/requests">
-              All Requests
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={navLinkStyle} to="/hr/employees">
-              Employee List
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={navLinkStyle} to="/hr/upgrade-package">
-              Upgrade Package
-            </NavLink>
-          </li>
-        </>
+      {user && (
+        <li>
+          <NavLink className={navLinkStyle} to="/dashboard">
+            Dashboard
+          </NavLink>
+        </li>
       )}
     </>
   );
@@ -118,12 +93,16 @@ const Navbar = ({ user }) => {
           {user ? (
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="relative w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                   <img
-                    src={user.photoURL || "/default-avatar.png"}
+                    src={
+                      user.photoURL ||
+                      "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500"
+                    }
                     alt="avatar"
                   />
                 </div>
+                <div className="absolute -bottom-1 -right-1.5 w-4 h-4 bg-green-600 rounded-full border-2 border-white animate-pulse"></div>
               </label>
               <ul
                 tabIndex={0}
@@ -133,7 +112,7 @@ const Navbar = ({ user }) => {
                   <Link to="/profile">Profile</Link>
                 </li>
                 <li>
-                  <button onClick={() => console.log("Logout clicked")}>
+                  <button type="button" onClick={handleLogOut}>
                     Logout
                   </button>
                 </li>
