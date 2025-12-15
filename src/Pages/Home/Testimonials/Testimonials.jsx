@@ -118,7 +118,7 @@ const Testimonials = () => {
             <motion.div
               key={i}
               variants={cardVariants}
-              className="py-8 lg:py-20"
+              className="py-8 lg:pt-24"
             >
               <h3 className="text-3xl lg:text-5xl font-bold mb-2 text-secondary">
                 {s.value}
