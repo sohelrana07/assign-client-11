@@ -7,13 +7,17 @@ const axiosSecure = axios.create({
   baseURL: "http://localhost:3000",
 });
 const useAxiosSecure = () => {
-  const { user, logOutUser } = useAuth();
+  const { logOutUser } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     // reqInterceptor
     const reqInterceptor = axiosSecure.interceptors.request.use((config) => {
-      config.headers.authorization = `Bearer ${user.accessToken}`;
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        config.headers.authorization = `Bearer ${token}`;
+      }
       return config;
     });
 
@@ -42,7 +46,7 @@ const useAxiosSecure = () => {
       axiosSecure.interceptors.request.eject(reqInterceptor);
       axiosSecure.interceptors.response.eject(resInterceptor);
     };
-  }, [user, logOutUser, navigate]);
+  }, [logOutUser, navigate]);
 
   return axiosSecure;
 };

@@ -21,8 +21,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleRegister = (data) => {
-    console.log("Register Data:", data);
-
     // register
     registerUser(data.email, data.password)
       .then(() => {
