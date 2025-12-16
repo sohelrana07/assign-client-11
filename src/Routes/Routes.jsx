@@ -9,6 +9,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import DashboardIndexRedirect from "../Components/DashboardIndexRedirect/DashboardIndexRedirect";
 import AddAsset from "../Pages/Dashboard/Hr/AddAsset/AddAsset";
+import RequestAsset from "../Pages/Dashboard/Employee/RequestAsset/RequestAsset";
 
 const router = createBrowserRouter([
   {
@@ -77,7 +78,7 @@ const router = createBrowserRouter([
       },
       {
         path: "request-asset",
-        // element: <RequestAsset />,
+        element: <RequestAsset />,
       },
       {
         path: "my-team",

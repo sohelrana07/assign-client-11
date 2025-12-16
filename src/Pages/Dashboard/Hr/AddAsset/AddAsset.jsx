@@ -9,6 +9,7 @@ const AddAsset = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const { user } = useAuth();
@@ -24,7 +25,7 @@ const AddAsset = () => {
       productType: data.productType,
       productQuantity: data.productQuantity,
       availableQuantity: data.productQuantity,
-      addedBy: user.email,
+      hrEmail: user.email,
     };
 
     axiosSecure.post("/assets", assetData).then((res) => {
@@ -36,6 +37,7 @@ const AddAsset = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        reset();
       }
     });
   };
