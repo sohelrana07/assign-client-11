@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardIndexRedirect from "../Components/DashboardIndexRedirect/DashboardIndexRedirect";
 import AddAsset from "../Pages/Dashboard/Hr/AddAsset/AddAsset";
 import RequestAsset from "../Pages/Dashboard/Employee/RequestAsset/RequestAsset";
+import Requests from "../Pages/Dashboard/Hr/Requests/Requests";
 
 const router = createBrowserRouter([
   {
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: "requests",
-        // element: <Requests />,
+        element: <Requests />,
       },
       {
         path: "employees",

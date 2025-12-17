@@ -17,8 +17,6 @@ const AddAsset = () => {
 
   // handle add asset
   const handleAddAsset = (data) => {
-    console.log(data);
-
     const assetData = {
       productName: data.productName,
       productImage: data.productImage,
