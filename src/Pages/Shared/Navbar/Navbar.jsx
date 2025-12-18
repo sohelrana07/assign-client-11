@@ -97,7 +97,7 @@ const Navbar = () => {
                   <img
                     src={
                       user.photoURL ||
-                      "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500"
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdZViE66j-NjGxox1Yz2JCNB7cP_byawE3w&s"
                     }
                     alt="avatar"
                   />
@@ -109,7 +109,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <Link to="/profile">Profile</Link>
+                  <Link to="/dashboard/profile">Profile</Link>
                 </li>
                 <li>
                   <button type="button" onClick={handleLogOut}>

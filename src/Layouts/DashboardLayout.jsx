@@ -218,6 +218,7 @@ const DashboardLayout = () => {
               </>
             )}
 
+            {/* Shared Profile */}
             <li>
               <button
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"

@@ -56,7 +56,8 @@ const Requests = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="p-6 md:p-10 bg-gray-50 min-h-screen">
+    <div className="p-4 md:p-10 bg-gray-50 min-h-screen">
+      <title>AssetVerse | Requests</title>
       {/* Heading */}
       <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
         Employee Asset Requests:
@@ -90,7 +91,7 @@ const Requests = () => {
                 </td>
                 <td className="py-3 px-4">
                   <span
-                    className={`px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${
+                    className={`px-3 py-1 text-xs font-semibold rounded-full shadow-sm capitalize ${
                       req.requestStatus === "pending"
                         ? "bg-yellow-100 text-yellow-800"
                         : req.requestStatus === "approved"
@@ -98,8 +99,7 @@ const Requests = () => {
                         : "bg-red-100 text-red-800"
                     }`}
                   >
-                    {req.requestStatus.charAt(0).toUpperCase() +
-                      req.requestStatus.slice(1)}
+                    {req.requestStatus}
                   </span>
                 </td>
 

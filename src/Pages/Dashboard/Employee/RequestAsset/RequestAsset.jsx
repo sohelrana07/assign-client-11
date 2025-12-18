@@ -31,7 +31,7 @@ const RequestAsset = () => {
     assetRef.current.close();
   };
 
-  // Submit request
+  // Asset request
   const handleAssetRequest = () => {
     if (!note.trim()) {
       Swal.fire({

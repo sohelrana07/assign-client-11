@@ -11,6 +11,8 @@ import DashboardIndexRedirect from "../Components/DashboardIndexRedirect/Dashboa
 import AddAsset from "../Pages/Dashboard/Hr/AddAsset/AddAsset";
 import RequestAsset from "../Pages/Dashboard/Employee/RequestAsset/RequestAsset";
 import Requests from "../Pages/Dashboard/Hr/Requests/Requests";
+import MyAssets from "../Pages/Dashboard/Employee/MyAssets/MyAssets";
+import Profile from "../Pages/Shared/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
         index: true,
         element: <DashboardIndexRedirect />,
       },
+      
       // HR Routes
       {
         path: "assets",
@@ -75,7 +78,7 @@ const router = createBrowserRouter([
       // Employee Routes
       {
         path: "my-assets",
-        // element: <MyAssets />,
+        element: <MyAssets />,
       },
       {
         path: "request-asset",
@@ -89,7 +92,7 @@ const router = createBrowserRouter([
       // Shared Route
       {
         path: "profile",
-        // element: <Profile />,
+        element: <Profile />,
       },
     ],
   },
