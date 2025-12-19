@@ -92,22 +92,28 @@ const RequestAsset = () => {
           {assets.map((asset) => (
             <div
               key={asset._id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 p-4 flex flex-col justify-between"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 p-4 flex flex-col justify-between"
             >
               <div className="flex justify-center mb-4">
                 <img
                   src={asset.productImage}
                   alt={asset.productName}
-                  className="w-full h-48 object-cover rounded-xl"
+                  className="w-full h-48 object-cover rounded-lg"
                 />
               </div>
               <div className="mb-4">
                 <h3 className="text-lg font-semibold text-gray-800 mb-1">
                   {asset.productName}
                 </h3>
+
+                <p className="text-sm font-medium text-amber-700">
+                  Company: {asset.companyName}
+                </p>
+
                 <p className="text-gray-500 text-sm">
                   Type: {asset.productType}
                 </p>
+                
                 <p className="text-gray-500 text-sm">
                   Available: {asset.availableQuantity}
                 </p>

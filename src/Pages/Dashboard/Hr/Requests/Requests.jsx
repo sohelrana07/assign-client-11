@@ -20,6 +20,15 @@ const Requests = () => {
     },
   });
 
+  // approve btn validate data
+  const { data: currentUser } = useQuery({
+    queryKey: ["currentUser"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/users/me");
+      return res.data;
+    },
+  });
+
   //   handle approve
   const handleApprove = async (req) => {
     axiosSecure.patch(`/requests/approve/${req._id}`).then((res) => {
@@ -109,7 +118,16 @@ const Requests = () => {
                       {/* Approve Btn */}
                       <button
                         onClick={() => handleApprove(req)}
-                        className="btn btn-sm bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 rounded-lg"
+                        disabled={
+                          currentUser?.currentEmployees >=
+                          currentUser?.packageLimit
+                        }
+                        className={`btn btn-sm bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 rounded-lg ${
+                          currentUser?.currentEmployees >=
+                          currentUser?.packageLimit
+                            ? "opacity-50 cursor-not-allowed"
+                            : ""
+                        }`}
                       >
                         <FaCheck size={14} /> Approve
                       </button>

@@ -13,6 +13,8 @@ import RequestAsset from "../Pages/Dashboard/Employee/RequestAsset/RequestAsset"
 import Requests from "../Pages/Dashboard/Hr/Requests/Requests";
 import MyAssets from "../Pages/Dashboard/Employee/MyAssets/MyAssets";
 import Profile from "../Pages/Shared/Profile/Profile";
+import MyTeam from "../Pages/Dashboard/Employee/MyTeam/MyTeam";
+import Employees from "../Pages/Dashboard/Hr/Employees/Employees";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
         index: true,
         element: <DashboardIndexRedirect />,
       },
-      
+
       // HR Routes
       {
         path: "assets",
@@ -68,7 +70,7 @@ const router = createBrowserRouter([
       },
       {
         path: "employees",
-        // element: <Employees />,
+        element: <Employees />,
       },
       {
         path: "package",
@@ -86,7 +88,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-team",
-        // element: <MyTeam />,
+        element: <MyTeam />,
       },
 
       // Shared Route
