@@ -84,8 +84,8 @@ const ExtraSections = () => {
               whileInView="visible"
               viewport={{ once: true }}
               className={`p-8 rounded-3xl shadow-2xl bg-white transform transition hover:-translate-y-4 hover:shadow-3xl
-                          ${i === 1 ? "-mt-8 md:-mt-12" : ""} ${
-                i === 2 ? "-mt-2" : ""
+                          ${i === 1 ? "-mt-2 md:-mt-12" : ""} ${
+                i === 2 ? "-mt-2 md:-mt-0" : ""
               }`}
             >
               <div className="bg-gradient-to-tr from-primary/20 to-secondary/20 p-4 rounded-full w-fit mx-auto mb-4">

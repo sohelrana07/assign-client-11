@@ -4,9 +4,11 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import Loading from "../../../../Components/Loading/Loading";
 import Swal from "sweetalert2";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const Requests = () => {
   const axiosSecure = useAxiosSecure();
+  const Navigate = useNavigate();
 
   const {
     isLoading,
@@ -117,10 +119,11 @@ const Requests = () => {
                     <>
                       {/* Approve Btn */}
                       <button
-                        onClick={() => handleApprove(req)}
-                        disabled={
+                        onClick={
                           currentUser?.currentEmployees >=
                           currentUser?.packageLimit
+                            ? Navigate("/dashboard/UpgradePackage")
+                            : () => handleApprove(req)
                         }
                         className={`btn btn-sm bg-green-50 text-green-700 hover:bg-green-100 border border-green-200 rounded-lg ${
                           currentUser?.currentEmployees >=

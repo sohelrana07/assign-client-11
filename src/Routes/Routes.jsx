@@ -16,6 +16,11 @@ import Profile from "../Pages/Shared/Profile/Profile";
 import MyTeam from "../Pages/Dashboard/Employee/MyTeam/MyTeam";
 import Employees from "../Pages/Dashboard/Hr/Employees/Employees";
 import AssetList from "../Pages/Dashboard/Hr/AssetList/AssetList";
+import UpgradePackage from "../Pages/Dashboard/Hr/UpgradePackage/UpgradePackage";
+import PaymentSuccess from "../Pages/Dashboard/Hr/UpgradePackage/PaymentSuccess";
+import PaymentCancelled from "../Pages/Dashboard/Hr/UpgradePackage/PaymentCancelled";
+import PaymentHistory from "../Pages/Dashboard/Hr/UpgradePackage/PaymentHistory";
+import Analytics from "../Pages/Dashboard/Hr/Analytics/Analytics";
 
 const router = createBrowserRouter([
   {
@@ -75,7 +80,23 @@ const router = createBrowserRouter([
       },
       {
         path: "package",
-        // element: <UpgradePackage />,
+        element: <UpgradePackage />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "payment-cancelled",
+        element: <PaymentCancelled />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
       },
 
       // Employee Routes

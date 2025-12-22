@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, Outlet } from "react-router";
 import { AiOutlineAppstore, AiOutlineProfile } from "react-icons/ai";
-import { MdAddBox, MdManageAccounts } from "react-icons/md";
-import { FaUsers, FaFileInvoiceDollar } from "react-icons/fa";
+import { MdAddBox, MdAnalytics, MdManageAccounts } from "react-icons/md";
+import { FaUsers, FaFileInvoiceDollar, FaRegCreditCard } from "react-icons/fa";
 import { TbHexagonLetterA } from "react-icons/tb";
 import useRole from "../Hooks/useRole";
 
@@ -212,6 +212,36 @@ const DashboardLayout = () => {
                       to="/dashboard/package"
                     >
                       Upgrade Package
+                    </Link>
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Payment History"
+                  >
+                    <FaRegCreditCard size={18} className="inline-block" />
+                    <Link
+                      className="is-drawer-close:hidden"
+                      to="/dashboard/payment-history"
+                    >
+                      Payment History
+                    </Link>
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Analytics"
+                  >
+                    <MdAnalytics size={18} className="inline-block" />
+                    <Link
+                      className="is-drawer-close:hidden"
+                      to="/dashboard/analytics"
+                    >
+                      Analytics
                     </Link>
                   </button>
                 </li>
