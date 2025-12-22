@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const HeroBanner = () => {
   return (
     <section className="bg-base-100 min-h-screen flex items-center">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 flex flex-col-reverse lg:flex-row items-center gap-10">
+      <div className="container mx-auto px-4 lg:px-10 flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

@@ -23,7 +23,7 @@ const AboutSection = () => {
 
   return (
     <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+      <div className="max-w-7xl mx-auto px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
         {/* Left side */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}

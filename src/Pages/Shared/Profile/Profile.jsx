@@ -160,111 +160,121 @@ const Profile = () => {
 
         {/* Right Side */}
         <div className="md:col-span-2">
-          <h3 className="text-2xl font-bold mb-6 text-primary">My Profile</h3>
-
-          {/* View Info */}
           {!editing && (
-            <div className="space-y-4 text-gray-700">
-              <p>
-                <strong>Name:</strong> {userData?.name}
-              </p>
-              <p>
-                <strong>Email:</strong> {userData?.email}
-              </p>
-              <p>
-                <strong>Date of Birth:</strong>{" "}
-                {format(new Date(userData?.dateOfBirth), "dd MMM yyyy")}
-              </p>
-              <p>
-                <strong>Company:</strong>{" "}
-                {userData?.companyName || "You don't have your own company"}
-              </p>
+            <>
+              <h3 className="text-2xl font-bold mb-6 text-primary">
+                My Profile
+              </h3>
 
-              <button
-                onClick={() => setEditing(true)}
-                className="mt-6 bg-primary text-white px-6 py-2 hover:bg-primary/90 transition"
-              >
-                Edit Profile
-              </button>
-            </div>
+              {/* View Info */}
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  <strong>Name:</strong> {userData?.name}
+                </p>
+                <p>
+                  <strong>Email:</strong> {userData?.email}
+                </p>
+                <p>
+                  <strong>Date of Birth:</strong>{" "}
+                  {format(new Date(userData?.dateOfBirth), "dd MMM yyyy")}
+                </p>
+                <p>
+                  <strong>Company:</strong>{" "}
+                  {userData?.companyName || "You don't have your own company"}
+                </p>
+
+                <button
+                  onClick={() => setEditing(true)}
+                  className="mt-6 cursor-pointer bg-primary text-white px-6 py-2 hover:bg-primary/90 transition"
+                >
+                  Edit Profile
+                </button>
+              </div>
+            </>
           )}
 
           {/* Edit Form */}
           {editing && (
-            <form
-              onSubmit={handleSubmit(handleUpdateProfile)}
-              className="grid grid-cols-1 md:grid-cols-2 gap-5"
-            >
-              {/* Name */}
-              <div>
-                <label className="text-sm text-gray-600">Full Name</label>
-                <input
-                  type="text"
-                  defaultValue={userData?.name}
-                  {...register("name")}
-                  className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary transition"
-                />
-              </div>
+            <>
+              <h3 className="text-2xl font-bold mb-6 text-primary">
+                Edit Profile
+              </h3>
 
-              {/* Email (Read only) */}
-              <div>
-                <label className="text-sm text-gray-600">
-                  Email (Read only)
-                </label>
-                <input
-                  type="email"
-                  readOnly
-                  defaultValue={userData?.email}
-                  className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary px-4 py-2 transition bg-gray-100 cursor-not-allowed"
-                />
-              </div>
+              <form
+                onSubmit={handleSubmit(handleUpdateProfile)}
+                className="grid grid-cols-1 md:grid-cols-2 gap-5"
+              >
+                {/* Name */}
+                <div>
+                  <label className="text-sm text-gray-600">Full Name</label>
+                  <input
+                    type="text"
+                    defaultValue={userData?.name}
+                    {...register("name")}
+                    className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary transition"
+                  />
+                </div>
 
-              {/* Date of Birth */}
-              <div>
-                <label className="text-sm text-gray-600">Date of Birth</label>
-                <input
-                  type="date"
-                  defaultValue={userData?.dateOfBirth?.slice(0, 10)}
-                  {...register("dateOfBirth")}
-                  className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary transition"
-                />
-              </div>
+                {/* Email (Read only) */}
+                <div>
+                  <label className="text-sm text-gray-600">
+                    Email (Read only)
+                  </label>
+                  <input
+                    type="email"
+                    readOnly
+                    defaultValue={userData?.email}
+                    className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary px-4 py-2 transition bg-gray-100 cursor-not-allowed"
+                  />
+                </div>
 
-              {/* Company Name */}
-              <div>
-                <label className="text-sm text-gray-600">Company</label>
-                <input
-                  type="text"
-                  readOnly={userData?.role === "employee"}
-                  defaultValue={
-                    userData?.role === "hr"
-                      ? userData?.companyName
-                      : "You don't have your own company"
-                  }
-                  placeholder="Your company name"
-                  {...register("company")}
-                  className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary transition"
-                />
-              </div>
+                {/* Date of Birth */}
+                <div>
+                  <label className="text-sm text-gray-600">Date of Birth</label>
+                  <input
+                    type="date"
+                    defaultValue={userData?.dateOfBirth?.slice(0, 10)}
+                    {...register("dateOfBirth")}
+                    className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary transition"
+                  />
+                </div>
 
-              {/* Button */}
-              <div className="md:col-span-2 flex gap-4 mt-4">
-                <button
-                  type="submit"
-                  className="bg-primary text-white px-6 py-2 hover:bg-primary/90 transition"
-                >
-                  Save
-                </button>
+                {/* Company Name */}
+                <div>
+                  <label className="text-sm text-gray-600">Company</label>
+                  <input
+                    type="text"
+                    readOnly={userData?.role === "employee"}
+                    defaultValue={
+                      userData?.role === "hr"
+                        ? userData?.companyName
+                        : "You don't have your own company"
+                    }
+                    placeholder="Your company name"
+                    {...register("company")}
+                    className="input rounded-none w-full outline-none border border-gray-300 focus:border-primary transition"
+                  />
+                </div>
 
-                <button
-                  type="button"
-                  onClick={() => setEditing(false)}
-                  className="bg-secondary text-white px-6 py-2 hover:bg-secondary/90 transition"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+                {/* Button */}
+                <div className="md:col-span-2 flex gap-4 mt-4">
+                  <button
+                    type="submit"
+                    className="cursor-pointer bg-primary text-white px-6 py-2 hover:bg-primary/90 transition"
+                  >
+                    Save
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setEditing(false)}
+                    className="cursor-pointer bg-secondary text-white px-6 py-2 hover:bg-secondary/90 transition"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </>
           )}
         </div>
       </div>

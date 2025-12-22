@@ -50,7 +50,7 @@ const DashboardLayout = () => {
         </nav>
 
         {/* Page content */}
-        <div className="p-6 md:p-12">
+        <div className="md:p-12">
           <Outlet />
         </div>
       </div>

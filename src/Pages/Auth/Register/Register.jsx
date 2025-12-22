@@ -44,7 +44,7 @@ const Register = () => {
           if (res.data.insertedId) {
             toast.success("Registration successful! Welcome to AssetVerse.");
             setTimeout(() => {
-              navigate("/");
+              navigate("/dashboard/profile");
             }, 1200);
           }
         });

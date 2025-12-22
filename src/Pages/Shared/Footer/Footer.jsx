@@ -13,7 +13,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-200 pt-12 pb-6">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Logo & About */}
         <div className="flex flex-col gap-4">
           <Link

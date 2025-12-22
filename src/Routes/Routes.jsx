@@ -15,6 +15,7 @@ import MyAssets from "../Pages/Dashboard/Employee/MyAssets/MyAssets";
 import Profile from "../Pages/Shared/Profile/Profile";
 import MyTeam from "../Pages/Dashboard/Employee/MyTeam/MyTeam";
 import Employees from "../Pages/Dashboard/Hr/Employees/Employees";
+import AssetList from "../Pages/Dashboard/Hr/AssetList/AssetList";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       // HR Routes
       {
         path: "assets",
-        // element: <AssetList />,
+        element: <AssetList />,
       },
       {
         path: "add-asset",

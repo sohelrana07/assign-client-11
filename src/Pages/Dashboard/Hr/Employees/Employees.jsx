@@ -64,7 +64,7 @@ const Employees = () => {
 
   return (
     <div className="p-4 md:p-8 bg-gray-50 min-h-screen">
-      <title>AssetVerse | My Employees</title>
+      <title>AssetVerse | My-Employees</title>
 
       {/* Heading */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">

@@ -51,7 +51,7 @@ const ExtraSections = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gray-50">
+    <section className="py-24 px-4 md:px-6 bg-gray-50">
       {/* How it works */}
       <div className="max-w-6xl mx-auto text-center mb-28">
         <motion.h2
