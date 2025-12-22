@@ -1,16 +1,97 @@
-# React + Vite
+# AssetVerse Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Corporate Asset Management System (Frontend)**
 
-Currently, two official plugins are available:
+This repository contains the **client-side code** of AssetVerse, a web-based corporate asset management system. The frontend allows HR/Admin and employees to interact with the system, request assets, and view analytics.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🔗 Live Site
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[Visit Live Site](https://assign-client-11.vercel.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🗝 Key Features (Client Side)
+
+### HR/Admin
+
+- View all company assets
+- Add new assets
+- Approve or reject employee requests
+- Upgrade company subscription/package
+- View payment history
+- Analytics dashboard:
+  - Pie chart: Returnable vs Non-returnable assets
+  - Bar chart: Top 5 most requested assets
+
+### Employee
+
+- View personal assigned assets
+- Request new assets
+- View team members (My Team)
+- Update profile
+
+### Shared
+
+- Profile management
+
+---
+
+## 💻 Tech Stack (Frontend)
+
+- **Framework:** React
+- **Styling:** TailwindCSS, DaisyUI
+- **Routing:** React Router
+- **State & Data Fetching:** Tanstack Query, Axios
+- **Forms:** React Hook Form
+- **Charts & Analytics:** Recharts
+- **Animations:** Framer Motion
+- **Notifications:** React Toastify, SweetAlert2
+- **Loading Indicators:** React Spinners, React Lottie
+- **Icons:** React Icons
+
+---
+
+## 📦 NPM Packages Used
+
+- `@tanstack/react-query`
+- `axios`
+- `date-fns`
+- `firebase`
+- `framer-motion`
+- `react`
+- `react-dom`
+- `react-hook-form`
+- `react-icons`
+- `react-lottie`
+- `react-router`
+- `react-spinners`
+- `react-toastify`
+- `recharts`
+- `sweetalert2`
+- `tailwindcss`
+- `@tailwindcss/vite`
+
+---
+
+## ⚙️ Setup Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone  https://github.com/sohelrana07/assign-client-11
+```
+
+## Environment variables configuration
+
+```
+VITE_APIKEY=AIzaSyC7S16hzLHioGO9tRLAaU******
+VITE_AUTHDOMAIN=asset*****.firebaseapp.com
+VITE_PROJECTID=asset******
+VITE_STORAGEBUCKET=asset******.firebasestorage.app
+VITE_MESSAGINGSENDERID=3751******
+VITE_APPID=1:37517828102:web:f82ff1e8070******
+VITE_IMG_HOST_KEY=e9361a2956d501c8420******
+
+```
