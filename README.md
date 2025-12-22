@@ -83,15 +83,15 @@ This repository contains the **client-side code** of AssetVerse, a web-based cor
 git clone  https://github.com/sohelrana07/assign-client-11
 ```
 
-## Environment variables configuration
+## 🔒 Environment variables configuration
 
 ```
-VITE_APIKEY=AIzaSyC7S16hzLHioGO9tRLAaU******
+VITE_APIKEY=SyC7S16hzLHioGO9tRLAaU******
 VITE_AUTHDOMAIN=asset*****.firebaseapp.com
 VITE_PROJECTID=asset******
 VITE_STORAGEBUCKET=asset******.firebasestorage.app
-VITE_MESSAGINGSENDERID=3751******
-VITE_APPID=1:37517828102:web:f82ff1e8070******
-VITE_IMG_HOST_KEY=e9361a2956d501c8420******
+VITE_MESSAGINGSENDERID=862351******
+VITE_APPID=1:386527828102:web:f82ff1e8070******
+VITE_IMG_HOST_KEY=e22a2956d501c8420******
 
 ```
